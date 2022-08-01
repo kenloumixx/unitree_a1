@@ -1,0 +1,1 @@
+/usr/bin/c++    -rdynamic CMakeFiles/walk_example.dir/examples/walk_example.cpp.o  -o walk_example   -L/home/user/catkin_ws/src/aliengo_sdk/lib  -Wl,-rpath,/home/user/catkin_ws/src/aliengo_sdk/lib -pthread -laliengo_comm -llcm 

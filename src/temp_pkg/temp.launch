@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<launch>
+    <arg name="rname" default="a1"/>
+    <arg name="ctrl_level" default="highlevel"/>
+    <arg name="mode" default="lcm_server_running_node"/>
+    <arg name="sim" doc='if True, run in simulator'/>
+
+    <group if="$(arg sim)">
+        <!-- simulation node will run if sim is true -->
+        <node pkg="unitree_base" type="a1_custom.py" name="isaac_sim"/>
+    </group>
+
+    <group unless="$(arg sim)">
+        <!-- unitree A1 will run if sim is false -->
+        <node pkg="unitree_base" type="$(arg mode)" name="node_lcm_server_running"
+            respawn="false" output="screen" args="$(arg rname) $(arg ctrl_level)">
+
+        <param name="robot_name" value="$(arg rname)"/>       
+        <param name="control_level" value="$(arg ctrl_level)"/>
+        </node>
+
+        <node pkg="unitree_base" type="unitree_base_node" name="unitree_base_node"/>
+    </group>
+
+
+</launch>

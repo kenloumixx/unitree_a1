@@ -1,0 +1,1 @@
+/usr/bin/c++    -rdynamic CMakeFiles/velocity_example.dir/examples/velocity_example.cpp.o  -o velocity_example   -L/home/user/catkin_ws/src/aliengo_sdk/lib  -Wl,-rpath,/home/user/catkin_ws/src/aliengo_sdk/lib -pthread -laliengo_comm -llcm 
